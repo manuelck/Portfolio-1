@@ -1,0 +1,197 @@
+
+.projects-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 650px;
+    position: relative;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 25px;
+
+}
+
+.project-link{
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    height: 300px;
+    margin: 10px;
+    width: 48%;
+}
+
+.filter-buttons-wrapper {
+    bottom: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 10;
+}
+
+.filter-buttons {
+    display: flex;
+    gap: 1rem;
+    
+}
+
+.filter-buttons button {
+    background-color: var(--purple);
+    color: var(--boxbg);
+    font-weight: 500;
+    padding: 5px 15px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    background: linear-gradient(328deg, rgba(110,82,243,1) 0%, rgba(172,121,255,1) 100%);
+
+}
+
+.slider-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;  
+}
+
+.projects-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out; /* Siding effect */
+
+}
+
+.slide {
+    flex: 0 0 100%; /* Each slide takes up the full width of the slider container */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: start;
+    width: 100%;
+    min-height: 600px;
+    }
+
+.project {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    text-align: center;
+    background-color: var(--boxbg);
+    position: relative;
+    justify-content: center;
+    width: 100%;
+    flex: 1;
+}
+
+
+.project-image {
+    height: 150px; /* Adjust this to your desired height */
+    width: 100%;
+    position: relative;
+    border-radius: 10px 10px 0 0;
+    object-fit: cover;
+    opacity: 50%;
+    transition: ease 0.5s;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.project:hover .project-image {
+    opacity: 100%; /* Full opacity on hover */
+}
+
+.main-tag {
+    font-size: 0.8rem;
+    position: absolute;
+    color: var(--purple);
+    top: 110px;
+    left: 15px;
+    background: #101114;
+    text-transform: uppercase;
+    border-radius: 0px 10px 0px 10px;
+    padding: 5px 10px;
+    font-weight: bold;
+    z-index: 10; /* Ensure it appears above the image */
+}
+
+.description {
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    margin: 20px;
+    text-align:justify;
+    background-color: var(--boxbg);
+    font-size: 0.8rem;
+    height: 50px;
+}
+
+.tool-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin: 20px;
+    background: var(--boxbg);
+    border-radius: 0 0 10px 10px;
+}
+
+.tool-tags span {
+    background-color: var(--purple);
+    color: var(--boxbg);
+    border-radius: 50px;
+    padding: 5px 15px;
+    font-size: 0.6rem;
+    font-weight: 600;
+}
+
+.dots-container {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: #cccccc00;
+    border: 1px solid var(--purple);
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: var(--purple);
+}
+
+#no-projects-message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--purple);
+}
+
+
+@media only screen and (max-width: 600px) {
+    .project-link{
+        text-decoration: none;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        height: 300px;
+        margin: 10px;
+        width: 90%;
+    
+    }
+
+    .filter-buttons{
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+  }
+
+

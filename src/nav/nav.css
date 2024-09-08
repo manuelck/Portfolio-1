@@ -1,0 +1,50 @@
+#nav {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-top: 50px;
+}
+
+#nav img{
+width: 25px;
+height: 25px;
+cursor: pointer;
+}
+
+.nav-right{
+    gap: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cta-resume{
+    width: 200px;
+    background-color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 50px;
+    margin-left: 20px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--bg);
+}
+
+
+@media only screen and (max-width: 600px) {
+    .cta-resume{
+        width: 150px;
+        background-color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 50px;
+        margin-left: 20px;
+        cursor: pointer;
+        font-size: 0.8rem;
+        font-weight: 500;
+        color: var(--bg);
+    }
+
+
+  }

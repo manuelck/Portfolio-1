@@ -1,0 +1,36 @@
+.signature{
+    flex-direction: column;
+    display: flex;
+    width: 100%;
+    color: var(--gray);
+    font-weight: 200;
+    justify-content: center;
+    align-items: center;
+    margin: 100px 0px;
+    gap: 1rem;
+}
+
+.heart img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25px;
+    height: 25px;
+    margin: 0px 5px;
+}
+
+.signature h2 {
+    font-size: 1rem;
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.signature h4 {
+    font-size:0.8rem;
+    font-weight: 300;
+
+}
+
