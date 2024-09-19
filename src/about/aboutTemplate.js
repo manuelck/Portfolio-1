@@ -1,6 +1,6 @@
 export const aboutTemplate = `<div class="about-assets">
     <div class="about-main">
-        <img src="public/img/Ppic.jpg" alt="">
+        <img src="/img/Ppic.jpg" alt="">
         <div class="about-assets-text">
             <h1 class="pr">Manuel Corpas Kannen</h1>
             <p>Marketing & Advertising Technician.</p>

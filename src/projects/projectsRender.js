@@ -1,5 +1,20 @@
 let filteredProjects = [];
-let currentSlide = 0;
+
+export function filterProjects(criteria = '') {
+    if (criteria === 'all' || criteria === '') {
+        filteredProjects = projects;
+    } else {
+        filteredProjects = projects.filter(project =>
+            project.category === criteria || project.tools.includes(criteria)
+        );
+    }
+    renderProjects();
+}
+
+export function initializeProjects() {
+    filteredProjects = projects;
+    renderProjects();
+}
 
 export function renderProjects() {
     const projectsWrapper = document.getElementById('projects-wrapper');
@@ -13,19 +28,20 @@ export function renderProjects() {
     if (!filteredProjects.length) {
         if (noProjectsMessage) noProjectsMessage.style.display = 'block';
         projectsWrapper.style.display = 'none';
-        renderDots(0);
         return;
     }
 
     if (noProjectsMessage) noProjectsMessage.style.display = 'none';
     projectsWrapper.style.display = 'flex';
 
-    const slides = Math.ceil(filteredProjects.length / 4);
-    for (let i = 0; i < slides; i++) {
+    const slidesCount = Math.ceil(filteredProjects.length / 4);
+    for (let i = 0; i < slidesCount; i++) {
         const slide = document.createElement('div');
         slide.classList.add('slide');
 
-        filteredProjects.slice(i * 4, i * 4 + 4).forEach(project => {
+        const projectsInThisSlide = filteredProjects.slice(i * 4, i * 4 + 4);
+
+        projectsInThisSlide.forEach(project => {
             const projectDiv = document.createElement('div');
             projectDiv.classList.add('project');
 
@@ -65,58 +81,5 @@ export function renderProjects() {
         });
 
         projectsWrapper.appendChild(slide);
-    }
-    renderDots(slides);
-    updateSlidePosition();
-}
-
-export function goToSlide(slideIndex) {
-    if (slideIndex === currentSlide) return;
-    currentSlide = slideIndex;
-    updateSlidePosition();
-    renderDots(Math.ceil(filteredProjects.length / 4));
-}
-
-function updateSlidePosition() {
-    const projectsWrapper = document.getElementById('projects-wrapper');
-    if (!projectsWrapper) return;
-    const slideWidth = projectsWrapper.clientWidth;
-    projectsWrapper.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
-    projectsWrapper.style.transition = 'transform 0.5s ease-in-out';
-}
-
-export function filterProjects(category) {
-    currentSlide = 0;
-    if (!Array.isArray(window.projects)) {
-        console.error('Projects data is not available.');
-        return;
-    }
-    filteredProjects = category === 'all' ? window.projects : window.projects.filter(project => project.category === category);
-    renderProjects();
-    setTimeout(() => updateSlidePosition(), 50);
-}
-
-export function renderDots(slides) {
-    const dotsContainer = document.getElementById('dots-container');
-    if (!dotsContainer) return;
-
-    dotsContainer.innerHTML = '';
-
-    if (slides <= 1) {
-        dotsContainer.style.display = 'block';
-    } else {
-        dotsContainer.style.display = 'block';
-    }
-
-    for (let i = 0; i < slides; i++) {
-        const dot = document.createElement('span');
-        dot.classList.add('dot');
-        if (i === currentSlide) dot.classList.add('active');
-        dot.addEventListener('click', () => {
-            currentSlide = i;
-            updateSlidePosition();
-            renderDots(slides);
-        });
-        dotsContainer.appendChild(dot);
     }
 }

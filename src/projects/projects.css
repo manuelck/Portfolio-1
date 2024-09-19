@@ -1,24 +1,24 @@
-
 .projects-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 650px;
     position: relative;
     justify-content: center;
     gap: 16px;
     margin-top: 25px;
-
+    height: 100%;
+    min-width: 300px;
 }
 
-.project-link{
+.project-link {
+    display: flex;
     text-decoration: none;
     justify-content: center;
     align-items: center;
-    display: flex;
     height: 300px;
     margin: 10px;
-    width: 48%;
+    width: 44%;
+    flex-wrap: nowrap;
 }
 
 .filter-buttons-wrapper {
@@ -32,7 +32,6 @@
 .filter-buttons {
     display: flex;
     gap: 1rem;
-    
 }
 
 .filter-buttons button {
@@ -44,7 +43,6 @@
     border-radius: 50px;
     cursor: pointer;
     background: linear-gradient(328deg, rgba(110,82,243,1) 0%, rgba(172,121,255,1) 100%);
-
 }
 
 .slider-container {
@@ -55,19 +53,18 @@
 
 .projects-wrapper {
     display: flex;
-    transition: transform 0.5s ease-in-out; /* Siding effect */
-
+    flex-wrap: nowrap;
+    width: 100%;
+    height: auto;
+    transition: transform 0.5s ease-in-out; 
 }
 
 .slide {
-    flex: 0 0 100%; /* Each slide takes up the full width of the slider container */
+    min-width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: start;
-    width: 100%;
-    min-height: 600px;
-    }
+}
 
 .project {
     display: flex;
@@ -77,10 +74,7 @@
     background-color: var(--boxbg);
     position: relative;
     justify-content: center;
-    width: 100%;
-    flex: 1;
 }
-
 
 .project-image {
     height: 150px; /* Adjust this to your desired height */
@@ -145,26 +139,6 @@
     font-weight: 600;
 }
 
-.dots-container {
-    text-align: center;
-    margin-top: 25px;
-}
-
-.dot {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    background-color: #cccccc00;
-    border: 1px solid var(--purple);
-    border-radius: 50%;
-    margin: 0 5px;
-    cursor: pointer;
-}
-
-.dot.active {
-    background-color: var(--purple);
-}
-
 #no-projects-message {
     display: flex;
     align-items: center;
@@ -174,24 +148,19 @@
     color: var(--purple);
 }
 
-
 @media only screen and (max-width: 600px) {
-    .project-link{
+    .project-link {
         text-decoration: none;
         justify-content: center;
         align-items: center;
-        display: flex;
         height: 300px;
         margin: 10px;
         width: 90%;
-    
     }
 
-    .filter-buttons{
+    .filter-buttons {
         flex-wrap: wrap;
         justify-content: center;
         align-items: center;
     }
-  }
-
-
+}

@@ -1,3 +1,4 @@
+// Export studiesData and workData
 export const studiesData = [
     {
         title: "Rock{TheCode} Full Stack.",
@@ -22,7 +23,6 @@ export const studiesData = [
     }
 ];
 
-
 export const workData = [
     {
         title: "Ayudante equipo de marketing.",
@@ -44,5 +44,5 @@ export const workData = [
         endYear: "2023",
         description: "Developed and maintained the company's main product, focusing on performance and usability.",
         type: "Internship"
-    },
+    }
 ];

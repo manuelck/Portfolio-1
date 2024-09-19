@@ -43,6 +43,6 @@ export const projects = [
         tools: ["Photoshop", "Illustrator"],
         link: "https://example.com/graphic-design-project-1" 
 
-    },
+    }
     
 ];

@@ -2,18 +2,17 @@ import { navTemplate } from './src/nav/navTemplate.js';
 import { skillThemes } from './src/about/skills.js';
 import { renderSkills } from './src/about/renderSkills.js';
 import { aboutTemplate } from './src/about/aboutTemplate.js';
-import { renderStudies, renderWork } from './src/studies/renderStudiesWork.js';
-import { studiesData, workData } from './src/studies/worksStudies.js';
+import { renderData } from './src/studies/renderStudiesWork.js';
 import { studiesTemplate } from './src/studies/studiesTemplate.js';
 import { footerTemplate } from './src/footer/footerTemplate.js';
 import { projectsTemplate } from './src/projects/projectsTemplate.js';
 import { projects } from './src/projects/projects.js';
-import { renderProjects, renderDots, goToSlide, filterProjects } from './src/projects/projectsRender.js';
-import { certificates} from './src/certificates/certificates.js';
+import { initializeProjects, filterProjects } from './src/projects/projectsRender.js';
+import { certificates } from './src/certificates/certificates.js';
 import { renderCertificates } from './src/certificates/certificatesRender.js';
+import { studiesData, workData } from './src/studies/worksStudies.js';
 
 window.projects = projects;
-
 window.filterProjects = filterProjects;
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -35,13 +34,21 @@ document.addEventListener("DOMContentLoaded", function() {
     studies.innerHTML = studiesTemplate;
     footer.innerHTML = footerTemplate;
 
-    filterProjects('all');
-    renderDots(Math.ceil(window.projects.length / 4));
+    initializeProjects();
+    filterProjects();
+
     renderSkills(skillThemes);
-    renderStudies(document.querySelector('.studies-list'), studiesData);
-    renderWork(document.querySelector('.work-list'), workData);
+
+    const studiesList = document.querySelector('.studies-list');
+    const workList = document.querySelector('.work-list');
+
+    if (!studiesList || !workList) {
+        console.error('Studies or work list container is missing in the HTML.');
+        return;
+    }
+
+    renderData(studiesList, studiesData, 'study');
+    renderData(workList, workData, 'work');
 
     renderCertificates(certificates); 
 });
-
-
