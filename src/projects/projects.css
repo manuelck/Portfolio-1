@@ -74,6 +74,7 @@
     background-color: var(--boxbg);
     position: relative;
     justify-content: center;
+    width: 100%;
 }
 
 .project-image {
